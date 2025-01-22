@@ -13,11 +13,7 @@
   #include <unistd.h>  // _SC_PAGESIZE
   #include <sys/mman.h>
   #include <sys/stat.h>
-  #ifdef OMIM_OS_ANDROID
-    #include <fcntl.h>
-  #else
-    #include <sys/fcntl.h>
-  #endif
+  #include <fcntl.h>
 #else
   #include <windows.h>
 #endif

@@ -194,8 +194,6 @@ MAIN_WITH_ERROR_HANDLING([](int argc, char ** argv)
   using namespace generator;
   using std::string;
 
-  CHECK(IsLittleEndian(), ("Only little-endian architectures are supported."));
-
   Platform & pl = GetPlatform();
 
   gflags::SetUsageMessage(

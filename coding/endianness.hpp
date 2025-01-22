@@ -5,7 +5,7 @@
 #include <cstddef>
 #include <type_traits>
 
-// #define ENDIAN_IS_BIG
+#define ENDIAN_IS_BIG
 
 // @TODO(bykoianko) This method returns false since 05.12.2010. That means only little-endian
 // architectures are supported. When it's necessary to support a big-endian system:

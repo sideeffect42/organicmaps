@@ -10,7 +10,9 @@
 
 #include <boost/algorithm/string/trim.hpp>
 #include <boost/math/special_functions/fpclassify.hpp>
+#if HAVE_FAST_DOUBLE_PARSER
 #include <fast_double_parser.h>
+#endif
 
 namespace strings
 {
@@ -44,7 +46,10 @@ bool ToReal(char const * start, T & result)
 {
   // Try faster implementation first.
   double d;
-  char const * endptr = fast_double_parser::parse_number(start, &d);
+  const char * endptr = nullptr;
+#if HAVE_FAST_DOUBLE_PARSER
+  endptr = fast_double_parser::parse_number(start, &d);
+#endif
   if (endptr == nullptr)
   {
     // Fallback to our implementation, it supports numbers like "1."
